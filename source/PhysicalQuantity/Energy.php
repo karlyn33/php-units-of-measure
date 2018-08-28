@@ -13,6 +13,25 @@ class Energy extends AbstractPhysicalQuantity
 
     protected static function initialize()
     {
+
+        // Calorie
+        $cal = UnitOfMeasure::nativeUnitFactory('cal');
+        $cal->addAlias('calorie');
+        static::addUnit($cal);
+
+        // Kilojoule
+        $newUnit = UnitOfMeasure::linearUnitFactory('kJ', 0,239006);
+        $newUnit->addAlias('kilojoules');
+        $newUnit->addAlias('kilojoule');
+        static::addUnit($newUnit);
+
+        // Kilojoule
+        $newUnit = UnitOfMeasure::linearUnitFactory('kcal', 1000);
+        $newUnit->addAlias('kilocalories');
+        $newUnit->addAlias('kilocalorie');
+        static::addUnit($newUnit);
+
+        /*
         // Joule
         $joule = UnitOfMeasure::nativeUnitFactory('J');
         $joule->addAlias('joule');
@@ -44,5 +63,6 @@ class Energy extends AbstractPhysicalQuantity
                 '%Pwatt hours',
             ]
         );
+        */
     }
 }
